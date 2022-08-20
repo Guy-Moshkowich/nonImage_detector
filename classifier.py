@@ -11,11 +11,16 @@ from os.path import isfile, join
 from skimage import exposure
 import os
 import datetime
-
+import sys
 
 def main():
+
     plt.figure(num=None, figsize=(8, 6), dpi=80)
-    mypath = './data/'
+    if len(sys.argv) == 1:
+        mypath = './data/'
+    else:
+        mypath = sys.argv[1]
+    print('path:', mypath)
     for f in listdir(mypath):
         if isfile(join(mypath, f)):
             file_path = mypath + f
